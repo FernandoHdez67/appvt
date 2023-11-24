@@ -65,3 +65,23 @@ Route::get('/categorias', [App\Http\Controllers\CategoriaController::class,'list
 
 Route::post('/crearusuario', [App\Http\Controllers\UsuariosContoller::class,'crearusuario']);
 
+Route::get('/usuariosapi', [App\Http\Controllers\UsuariosContoller::class,'usuariosapi']);
+
+
+// Rutas de autenticación
+Route::post('/loginusuario', [App\Http\Controllers\LoginApiController::class,'login']);
+
+use App\Http\Controllers\CarritoController;
+
+
+Route::post('/carrito/agregar', [CarritoController::class, 'agregarProducto']);
+Route::delete('/carrito/eliminar/{idcarrito}', [CarritoController::class, 'eliminarProducto']);
+Route::get('/carrito/limpiar', [CarritoController::class, 'limpiarCarrito']);
+Route::get('/carrito', [CarritoController::class, 'getCarrito']);
+Route::get('/carrito/comprarahora', [CarritoController::class, 'comprarahora']);
+Route::post('/carrito/session', [CarritoController::class, 'session']);
+Route::get('/carrito/success', [CarritoController::class, 'success']);
+
+
+
+

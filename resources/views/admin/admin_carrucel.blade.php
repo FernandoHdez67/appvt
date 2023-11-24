@@ -37,7 +37,7 @@
                         </td>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $carrucel->nombre }}</td>
-                        <td><img src="{{ 'imgcarrucel/'.$carrucel->imagen}}" class="card-img-top" alt="" width="50px" height="100px"></td>
+                        <td><img src="{{ 'imgcarrucel/'.$carrucel->imagen}}" class="col-sm-6 hidden-xs" alt="" width="50px" height="100px"></td>
                         <td>
                             <form method="POST" action="{{ route('destroy.imagen', $carrucel->idimagen) }}">
                                 @csrf

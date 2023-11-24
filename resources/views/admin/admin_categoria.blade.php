@@ -52,7 +52,7 @@
 
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $category->categoria }}</td>
-                        <td><img src="{{ 'imgcategorias/'.$category->imagencat}}" class="card-img-top" alt="" width="50px" height="60px"></td>
+                        <td><img src="{{ 'imgcategorias/'.$category->imagencat}}" class="img-responsive" alt="" width="50px" height="60px"></td>
                         <td>
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('categoria.edit', $category->idcategoria) }}"

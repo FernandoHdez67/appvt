@@ -116,8 +116,11 @@
                 @enderror
             </div>
         </div>
-
+        @if (session()->has('idusuario'))
         <button type="submit" class="btn btn-rojopet">Registrar cita</button>
+        @else
+        <a href="{{ route('iniciar') }}" class="btn btn-rojopet">Registrar cita</a>
+        @endif
     </form>
 </div> <br><br>
 
@@ -187,25 +190,25 @@
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                         <label class="form-check-label" for="flexCheckChecked">
                             Reducir el tiempo de espera.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                         <label class="form-check-label" for="flexCheckChecked">
                             Mejorar la atención al cliente.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                         <label class="form-check-label" for="flexCheckChecked">
                             Mejorar las instalaciones para mayor comodidad.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                         <label class="form-check-label" for="flexCheckChecked">
                             Simplificar el proceso de registro.
                         </label>

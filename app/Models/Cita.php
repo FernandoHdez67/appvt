@@ -11,7 +11,7 @@ class Cita extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = 'tbl_citas';
-    protected $fillable = ['nombre_mascota', 'raza_mascota', 'nombre_propietario', 'telefono_propietario','edad_mascota','sexo_mascota', 'fecha_cita', 'hora_cita', 'razon_cita'];
+    protected $fillable = ['nombre_mascota', 'raza_mascota', 'nombre_propietario', 'telefono_propietario','edad_mascota','sexo_mascota', 'fecha_cita', 'hora_cita', 'razon_cita','idusuario'];
 
     // Relación con la tabla tbl_horarios
     public function horario()

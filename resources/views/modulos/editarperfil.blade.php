@@ -1,6 +1,6 @@
 @extends('principal')
 
-@section('title',"Carrito | Cachorro PET")
+@section('title',"Mi Perfil | Cachorro PET")
 
 @section ('contenido')
 
@@ -17,7 +17,7 @@
         @method('put')
 
         <div class="form-group">
-            <label for="nombre">Nombre <b style="color: red">*</b></label>
+            <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" value="{{ $usuario->nombre }}" class="form-control @error('nombre') is-invalid @enderror">
             @error('nombre')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            <label for="apaterno">Apellido Paterno <b style="color: red">*</b></label>
+            <label for="apaterno">Apellido Paterno</label>
             <input type="text" name="apaterno" id="apaterno" value="{{ $usuario->apaterno }}" class="form-control @error('apaterno') is-invalid @enderror">
             @error('apaterno')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group">
-            <label for="amaterno">Apellido Materno <b style="color: red">*</b></label>
+            <label for="amaterno">Apellido Materno</label>
             <input type="text" name="amaterno" id="amaterno" value="{{ $usuario->amaterno }}" class="form-control @error('amaterno') is-invalid @enderror">
             @error('amaterno')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            <label for="telefono">Teléfono <b style="color: red">*</b></label>
+            <label for="telefono">Teléfono</label>
             <input type="text" name="telefono" id="telefono" value="{{ $usuario->telefono }}" class="form-control @error('telefono') is-invalid @enderror">
             @error('telefono')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            <label for="email">Correo <b style="color: red">*</b></label>
+            <label for="email">Correo</label>
             <input type="email" name="email" id="email" value="{{ $usuario->email }}" class="form-control @error('email') is-invalid @enderror">
             @error('email')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="form-group">
-            <label for="direccion">Dirección <b style="color: red">*</b></label>
+            <label for="direccion">Dirección</label>
             <textarea class="form-control @error('direccion') is-invalid @enderror" name="direccion" id="direccion">{{ $usuario->direccion }}</textarea>
             @error('direccion')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -65,7 +65,7 @@
         </div>
 
         <div class="form-group">
-            <label for="nombre_usuario">Nombre de Usuario <b style="color: red">*</b></label>
+            <label for="nombre_usuario">Nombre de Usuario</label>
             <input type="text" name="nombre_usuario" id="nombre_usuario" value="{{ $usuario->nombre_usuario }}" class="form-control @error('nombre_usuario') is-invalid @enderror">
             @error('nombre_usuario')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -73,7 +73,7 @@
         </div>
 
         <div class="form-group">
-            <label for="preguntasecreta">Pregunta Secreta <b style="color: red">*</b></label>
+            <label for="preguntasecreta">Pregunta Secreta</label>
             <select class="form-select" aria-label="Default select example" id="preguntasecreta" name="preguntasecreta">
                 @foreach($preguntas as $pregunta)
                     <option value="{{ $pregunta->idpreguntasecreta }}" {{ $pregunta->idpreguntasecreta == $usuario->idpreguntasecreta ? 'selected' : '' }}>{{ $pregunta->preguntasecreta }}</option>
@@ -82,7 +82,7 @@
         </div>
 
         <div class="form-group">
-            <label for="respuesta">Respuesta <b style="color: red">*</b></label>
+            <label for="respuesta">Respuesta</label>
             <input type="text" id="respuesta" name="respuesta" value="{{ $usuario->respuesta }}" class="form-control @error('respuesta') is-invalid @enderror">
             @error('respuesta')
                 <div class="invalid-feedback">{{ $message }}</div>

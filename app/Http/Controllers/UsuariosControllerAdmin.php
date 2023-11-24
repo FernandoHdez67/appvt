@@ -12,7 +12,7 @@ class UsuariosControllerAdmin extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * 
+     *
      */
     public function usuarios(Request $request)
     {
@@ -32,6 +32,7 @@ class UsuariosControllerAdmin extends Controller
         return view('admin.admin_usuarios',compact('usuarios','texto'));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +49,7 @@ class UsuariosControllerAdmin extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
 
     /**
      * Display the specified resource.

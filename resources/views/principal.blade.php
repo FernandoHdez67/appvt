@@ -114,13 +114,24 @@
                                         class="fa-solid fa-circle-question"></i> Ayuda</b></a>
                         </li>
                     </ul>
-                    <a style="text-decoration: none; color:white" href="{{ Route('carrito.index') }}">
-                        <b style="margin-right: 10px"><i class="fa-solid fa-cart-plus fa-xl"
-                                style="color: #ffffff;"></i></i> Carrito</b>
+                    <a style="text-decoration: none; color:white" href="{{ route('carrito.index') }}">
+                        <b style="margin-right: 10px">
+                            <i class="fa-solid fa-cart-plus fa-xl" style="color: #ffffff;"></i>
+                            @php
+                            // Obtener la cantidad total de productos en el carrito para el usuario actual
+                            $cantidadTotalEnCarrito = \App\Models\Carrito::where('idusuario',
+                            session('idusuario'))->sum('cantidad');
+                            @endphp
+                            @if ($cantidadTotalEnCarrito > 0)
+                            <span class="badge bg-secondary">{{ $cantidadTotalEnCarrito }}</span>
+                            @endif
+                        </b>
                     </a>
+
+
                     {{-- <img src="{{ asset('img/carrito2.png') }}" width="40px" height="30px" alt=""> --}}
                     @if (session()->has('idusuario'))
-                    <div class="btn-group dropstart">
+                    <div class="btn-group">
                         <a class="btn btn-rojopet dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-user"></i> <b>{{ session('nombreUsuario') }}</b>
@@ -129,8 +140,11 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{{ route('perfilusuario.editar') }}"><i
                                         class="fa-solid fa-user"></i> Mi perfil</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-calendar-check"></i> Mis
-                                    citas</a></li>
+                            <li><a class="dropdown-item" href="{{ route('miscitas') }}"><i
+                                        class="fa-solid fa-calendar-check"></i> Mis citas</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-money-check"></i> Mis compras</a>
+                            </li>
                             <form action="{{ route('logoute') }}" method="POST">
                                 @csrf
                                 <button class="dropdown-item" type="submit"><i

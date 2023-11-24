@@ -189,7 +189,12 @@ class UsuariosContoller extends Controller
         return Usuarios::where('email', $email)->exists();
     }
 
+    public function usuariosapi(Request $request)
+    {
+        $usuariosapi = Usuarios::all();
+        return response()->json($usuariosapi);
 
+    }
 
     /**
      * Display the specified resource.

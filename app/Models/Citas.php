@@ -10,5 +10,12 @@ class Citas extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = 'tbl_citas';
-    protected $fillable = ['nombre_mascota', 'raza_mascota', 'nombre_propietario', 'telefono_propietario','edad_mascota','sexo_mascota', 'fecha_cita', 'hora_cita', 'razon_cita'];
+    protected $attributes = ['estado_cita' => 'En espera',];
+    protected $fillable = ['nombre_mascota', 'raza_mascota', 'nombre_propietario', 'telefono_propietario','edad_mascota','sexo_mascota', 'fecha_cita', 'hora_cita', 'razon_cita','idusuario'];
+
+     // Relación con la tabla tbl_horarios
+     public function horario()
+     {
+         return $this->belongsTo(Horario::class, 'hora_cita', 'idhorario');
+     }
 }

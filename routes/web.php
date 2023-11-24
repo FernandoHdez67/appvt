@@ -122,6 +122,7 @@ Route::get('/product', [App\Http\Controllers\ProductoController::class, 'buscard
 
 Route::get('/servicios', [App\Http\Controllers\ServiciosController::class, 'servicios'])->name('servicios');
 Route::get('/productos/detalles/{idproducto}', [ProductoDetalle::class, 'detalles'])->name('detalles');
+
 //TERMINA RUTAS SOLO PARA RETORNAR VISTAR DE LOS MODULOS METODO GET
 
 
@@ -162,7 +163,8 @@ Route::get('/citass', [App\Http\Controllers\CitasController::class, 'citas'])
     ->name('citass');
 
 Route::delete('/citass/{id}', [App\Http\Controllers\CitasController::class, 'destroy'])->name('destroy.cita');
-
+Route::put('/citass/{id}', [App\Http\Controllers\CitasController::class, 'update'])->name('update.cita');
+Route::get('/citass/{id}/edit', [App\Http\Controllers\CitasController::class, 'edit'])->name('edit.cita');
 
 
 Route::get('/services', [App\Http\Controllers\ServiciosController::class, 'adminservicios'])
@@ -306,9 +308,9 @@ Route::get('/google-callback', function () {
 //CARRITO DE COMPRAS
 
 Route::get('/carrito', [App\Http\Controllers\CarritoController::class,'index'])->name('carrito.index');
-Route::post('/carrito/agregar/{idproducto}', [App\Http\Controllers\CarritoController::class,'agregar'])->name('carrito.agregar');
-Route::post('/carrito/remover/{idproducto}', [App\Http\Controllers\CarritoController::class,'remover'])->name('carrito.remover');
-Route::post('/carrito/limpiar', [App\Http\Controllers\CarritoController::class,'limpiar'])->name('carrito.limpiar');
+Route::post('/carrito/agregar', [App\Http\Controllers\CarritoController::class,'agregarProducto'])->name('carrito.agregar');
+Route::delete('/carrito/eliminar/{idcarrito}', [App\Http\Controllers\CarritoController::class, 'eliminarProducto'])->name('carrito.eliminar');
+Route::delete('/carrito/limpiar', [App\Http\Controllers\CarritoController::class, 'limpiarCarrito'])->name('carrito.limpiar');
 
 
 //PREDICCIONES
@@ -338,5 +340,14 @@ Route::put('/perfil/actualizar', [App\Http\Controllers\PerfilUsuario::class,'act
 
 Route::get('/perfil/editar', [App\Http\Controllers\PerfilUsuario::class,'editar'])->name('perfilusuario.editar');
 
+Route::get('/miscitas', [App\Http\Controllers\CitasController::class,'citasUsuario'])->name('miscitas');
 
 
+//Pagos
+
+Route::post('/session', [App\Http\Controllers\CarritoController::class,'session'])->name('session');
+Route::get('/success', [App\Http\Controllers\CarritoController::class,'success'])->name('success');
+
+Route::post('/sessionproduct', [App\Http\Controllers\CarritoController::class,'sessionproduct'])->name('sessionproduct');
+
+Route::get('/usocamara', [App\Http\Controllers\CamaraController::class,'usocamara'])->name('usocamara');

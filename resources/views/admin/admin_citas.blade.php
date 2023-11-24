@@ -11,7 +11,7 @@
     @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
-    </div> 
+    </div>
     @endif
     <div class="card-body">
 
@@ -29,6 +29,7 @@
                         <th scope="col">Fecha</th>
                         <th scope="col">Hora</th>
                         <th scope="col">Razon</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -46,10 +47,11 @@
                         <td>{{ $citas->fecha_cita }}</td>
                         <td>{{ $citas->hora_cita }}</td>
                         <td>{{ $citas->razon_cita }}</td>
+                        <td>{{ $citas->estado_cita }}</td>
                         <td>
                             <div class="d-flex justify-content-between">
-                                {{-- <a href="{{ route('categoria.edit', $categoria->idcategoria) }}"
-                                    class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i></a> --}}
+                                <a href="{{ route('edit.cita', $citas->id) }}"
+                                    class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <form method="POST" action="{{ route('destroy.cita', $citas->id) }}">
                                     @csrf
                                     @method('DELETE')

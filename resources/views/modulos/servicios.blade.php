@@ -18,7 +18,12 @@
                                 <h3 class="card-title">{{$servicio->tipo}}</h3>
                             </center>
                             <p class="card-text">{{$servicio->descripcion}}</p> <br>
-                            <a href="{{ route('citas', ['idservicio' => $servicio->idservicio]) }}" class="btn btn-rojopet">Agendar Cita</a>
+
+                            @if (session()->has('idusuario'))
+                                <a href="{{ route('citas', ['idservicio' => $servicio->idservicio]) }}" class="btn btn-rojopet">Agendar Cita</a>
+                            @else
+                                <a href="{{ route('iniciar') }}" class="btn btn-rojopet">Agendar Cita</a>
+                            @endif
 
                         </div>
                     </div>
